@@ -1,0 +1,31 @@
+<div data-hook="admin_bank_account_form_fields">
+  <div class="alpha twelve columns">
+    <fieldset data-hook="bank_accounts" class=" no-border-bottom">
+      <legend align="center"><%= t(:general_settings) %></legend>
+      
+      <div class="alpha six columns">
+        <div data-hook="bank_name" class="field">
+          <%= f.label :bank_name, t(:bank_name) %>
+          <%= f.text_field :bank_name, :class => 'fullwidth' %>
+        </div>
+        <div data-hook="bank_branch" class="field">
+          <%= f.label :bank_branch, t(:bank_branch) %>
+          <%= f.text_field :bank_branch, :class => 'fullwidth' %>
+        </div>
+      </div>
+
+      <div class="omega six columns">
+        <div data-hook="account_owner" class="field">
+          <%= f.label :account_owner, t(:account_owner) %>
+          <%= f.text_field :account_owner, :class => 'fullwidth' %>
+        </div>
+        <div data-hook="account_number" class="field">
+          <%= f.label :account_number, t(:account_number) %>
+          <%= f.text_field :account_number, :class => 'fullwidth' %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div class="clear"></div>
+</div>

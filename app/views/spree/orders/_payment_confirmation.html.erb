@@ -1,0 +1,64 @@
+<% if @order.payment_confirmed %>
+  <div class="notice flash">
+    <%= t(:thank_you_for_confirming_your_payment_your_order_is_currently_being_processed) %>
+  </div>
+<% else %>
+  <fieldset id="payment_confirmation" data-hook>
+    <legend align="center"><%= t(:payment_confirmation) %></legend>
+    <div id="@order" data-hook>
+      <div class="row steps-data">
+      
+        <%= form_tag(confirm_payment_order_path, :method => "post", :id => "payment_confirmation_form") do %>
+        <div class="columns alpha four">
+          <p class="field" id=<%= "#{@order.id}name" %>>
+            <%= label_tag :name, t(:name) %><span class="required">*</span><br />
+            <%= text_field_tag :name, "", :class => 'required' %>
+          </p>
+        </div>
+
+        <div class="columns alpha four">
+          <p class="field" id=<%= "#{@order.id}amount" %>>
+            <%= label_tag :amount, t(:amount) %><span class="required">*</span><br />
+            <%= text_field_tag :amount, "", :class => 'required digits' %>
+          </p>
+        </div>
+
+        <div class="columns alpha four">
+          <p class="field" id=<%= "#{@order.id}bank_name" %>>
+            <%= label_tag :bank_name, t(:bank_name) %><span class="required">*</span><br />
+            <%= select_tag :bank_name, options_from_collection_for_select(available_bank_accounts, :bank_name, :bank_name) %>
+          </p>
+        </div>
+
+        <div class="columns omega four">
+          <div class="form-buttons" data-hook="buttons">
+            <%= submit_tag t(:confirm), :class => 'continue button primary' %>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </fieldset>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#payment_confirmation_form").validate();
+      $("#payment_confirmation select").select2({
+        width: "100%"
+      });
+    });
+  </script>
+  <style>
+    #payment_confirmation legend {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      color: #00adee;
+      padding: 5px;
+      margin-left: 15px;
+    }
+    #payment_confirmation input[type="text"] {
+      padding: 7px 5px;
+    }
+  </style>
+<% end %>

@@ -1,0 +1,33 @@
+<% param_prefix = "payment_source[#{payment_method.id}]" %>
+
+<p>
+  <%= t(:please_make_your_payment_by_using_bank_transfer_to_one_of_the_following_banks) %>.
+  <%= t(:please_continue_to_the_payment_confirmation_page_once_you_ve_made_your_payment) %>.
+</p>
+
+<table class="index">
+  <colgroup>
+    <col style="width: 20%">
+    <col style="width: 25%">
+    <col style="width: 25%">
+    <col style="width: 35%">
+  </colgroup>
+  <thead>
+    <tr data-hook="account_header">
+      <th><%= t(:bank_name) %></th>
+      <th><%= t(:bank_branch) %></th>
+      <th><%= t(:account_owner) %></th>
+      <th><%= t(:account_number) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bank_accounts.each do |bank_account| %>
+    <tr id="<%= bank_account %>" data-hook="account_row" class="<%= cycle('odd', 'even') %>">
+      <td><%= bank_account.bank_name %></td>
+      <td><%= bank_account.bank_branch %></td>
+      <td><%= bank_account.account_owner %></td>
+      <td><%= bank_account.account_number %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

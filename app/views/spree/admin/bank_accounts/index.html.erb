@@ -1,0 +1,50 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= t(:bank_accounts) %>
+<% end %>
+
+<% content_for :page_actions do %>
+	<li>
+	<%= button_link_to t(:new_bank_account), new_object_url, :icon => 'icon-plus' %>
+	</li>
+<% end %>
+
+<% unless @bank_accounts.any? %>
+  <div class="no-objects-found">
+    <%= t(:no_results) %>
+  </div>
+<% else %>
+  <table class="index">
+    <colgroup>
+      <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+    </colgroup>
+    <thead>
+      <tr data-hook="account_header">
+        <th><%= t(:bank_name) %></th>
+        <th><%= t(:bank_branch) %></th>
+        <th><%= t(:account_owner) %></th>
+        <th><%= t(:account_number) %></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bank_accounts.each do |bank_account|%>
+      <tr id="<%= spree_dom_id bank_account %>" data-hook="account_row" class="<%= cycle('odd', 'even')%>">
+        <td><%=bank_account.bank_name %></td>
+        <td><%=bank_account.bank_branch %></td>
+        <td><%=bank_account.account_owner %></td>
+        <td><%=bank_account.account_number %></td>
+        <td class="actions">
+          <%= link_to_edit bank_account, :no_text => true %>
+          <%= link_to_delete bank_account, :no_text => true %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
