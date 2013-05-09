@@ -1,11 +1,11 @@
 module Spree
 	class PaymentMethod::BankTransfer < PaymentMethod
-		preference :twilio_sid, :string
-		preference :twilio_token, :string
-		preference :twilio_from, :string
-		preference :twilio_to, :string
-
-		attr_accessible :preferred_twilio_sid, :preferred_twilio_token, :preferred_twilio_from, :preferred_twilio_to
+		#preference :twilio_sid, :string
+		#preference :twilio_token, :string
+		#preference :twilio_from, :string
+		#preference :twilio_to, :string
+    #
+		#attr_accessible :preferred_twilio_sid, :preferred_twilio_token, :preferred_twilio_from, :preferred_twilio_to
 
 	  def actions
 	  	%w{capture void}

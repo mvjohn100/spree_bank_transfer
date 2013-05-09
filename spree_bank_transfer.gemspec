@@ -1,14 +1,16 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_bank_transfer'
+  s.name        = 'spree_bank_transfer_simplified'
   s.version     = '1.0.0'
   s.summary     = 'Adds payment method by bank transfer'
-  s.required_ruby_version = '>= 1.8.7'
+  #s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 1.9.3'
 
-  s.author    = 'Joni Chandra'
-  s.email     = 'joniliciously@gmail.com'
-  s.homepage  = 'https://github.com/fuyo/spree-bank-transfer'
+  s.author    = 'john'
+  s.email     = 'john@klairvoyant.com'
+  s.homepage  = ''
+  s.description = "spree_bank_transfer_simplified version of the gem named spree_bank_transfer. it's discarded twilio API and a partial file _payment_confirmation"
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -16,8 +18,6 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 1.3.2'
-  s.add_dependency 'twilio-ruby'
-
   s.add_development_dependency 'capybara', '~> 1.1.2'
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'factory_girl', '~> 2.6.4'
