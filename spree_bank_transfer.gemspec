@@ -1,7 +1,7 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_bank_transfer_simplified'
+  s.name        = 'spree_bank_transfer'
   s.version     = '1.0.0'
   s.summary     = 'Adds payment method by bank transfer'
   #s.required_ruby_version = '>= 1.8.7'
@@ -9,8 +9,9 @@ Gem::Specification.new do |s|
 
   s.author    = 'john'
   s.email     = 'john@klairvoyant.com'
-  s.homepage  = ''
-  s.description = "spree_bank_transfer_simplified version of the gem named spree_bank_transfer. it's discarded twilio API and a partial file _payment_confirmation"
+  s.homepage  = 'https://github.com/mvjohn100/spree_bank_transfer_simplified.git'
+  s.description = "simplified version of the gem named spree_bank_transfer. it's discarded twilio API and a partial file _payment_confirmation"
+  s.license = 'New BSD'
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
