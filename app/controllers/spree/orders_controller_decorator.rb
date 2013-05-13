@@ -27,8 +27,9 @@ module Spree
       @name=params[:name];
       @amount=params[:amount];
       @bank_name=params[:bank_name];
-      @order_no=@order.number;
-      BankConfirm.deliver_bank_confirmed(@name,@amount,@bank_name,@order_no);
+
+      #BankConfirm.deliver_bank_confirmed(@name,@amount,@bank_name,@order);
+      BankConfirm.bank_confirmed().deliver
 
 
 
