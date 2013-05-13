@@ -24,8 +24,11 @@ module Spree
       @order.payment_confirmed = true
       @order.save
 
-      #BankConfirm.bank_confirmed().delivered
-      BankConfirm.deliver_bank_confirmed(params[:name],params[:amount],params[:bank_name],@order.number);
+      @name=params[:name];
+      @amount=params[:amount];
+      @bank_name=params[:bank_name];
+      @order_no=@order.number;
+      BankConfirm.deliver_bank_confirmed(@name,@amount,@bank_name,@order_no);
 
 
 
