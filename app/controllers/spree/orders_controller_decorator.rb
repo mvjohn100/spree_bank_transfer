@@ -24,6 +24,11 @@ module Spree
       @order.payment_confirmed = true
       @order.save
 
+      subject = "#{params[:name]} has transferred #{Spree::Config.currency} " +
+          "#{params[:amount]} to #{params[:bank_name]} for order #{@order.number}"
+
+      mail(:to => "contact@klairvoyant.com", :from => @order.email, :subject => subject)
+
       redirect_to @order
     end
   end
